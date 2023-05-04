@@ -1,14 +1,27 @@
-// Created the header component ... now heads up to the app.js to add it to our application.
 
-const Header = () => {
+// You create a boilerplate of a component by "rafce"
+// now heads up to the app.js to add it to our application.
+// Avoid giving the functional component the same name as the nested html tag Also rem html tags are lower cased..
+import PropTypes from "prop-types"
+
+
+const Header = ({title}) => {
   return (
-    <>
-    <h1>Task tracker </h1> 
-    <h4>We just figured this out chile!</h4>
-    </>
-
+    < header class = "header">
+    <h1>{title}</h1> 
+    <button>Add</button>
     
+    </header>
+
   )
+}
+
+Header.defaultProps = {
+  title: "Task Tracker",
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
 }
 
 export default Header
