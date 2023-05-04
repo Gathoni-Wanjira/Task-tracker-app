@@ -1,9 +1,13 @@
-function App() {
+// You create a boilerplate of a component by "rafce"
+import Header from './components/Header';
+
+const App = () => {
   return (
-    <div className="App">
-    <h1>Hello World</h1>
-  
+    // You can only have one main parent element.
+    <div className="container">
+    <Header />
     </div>
+  
   );
 }
 
