@@ -41,11 +41,22 @@ const App = () => {
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))
   }
+
+  // Toggle Reminder Function.
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) =>
+     task.id === id ? {...task, reminder:
+      !task.reminder} : task)
+      )
+  }
+
+
+
   return (
     // You can only have one main parent element.
     <div className="container">
       < Header />
-      {tasks.length > 0 ? < Tasks tasks={tasks} onDelete={deleteTask} /> : "No Tasks to show"}
+      {tasks.length > 0 ? < Tasks tasks={tasks} onDelete={deleteTask} onToggle ={toggleReminder}/> : "No Tasks To Show"}
     </div>
 
   )
