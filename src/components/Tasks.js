@@ -1,4 +1,5 @@
 import React from 'react'
+import Task from './Task'
 
 
 // State is a built in object that represents the state of a component.
@@ -12,7 +13,7 @@ const Tasks = ({ tasks }) => {
     
     <React.Fragment>
        {tasks.map((task) =>(
-       <h3 key={task.id}>{task.text}</h3>
+       <Task key={task.id} task = {task} />
         ))}
     </React.Fragment>
     
