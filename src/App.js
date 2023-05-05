@@ -45,7 +45,7 @@ const App = () => {
     // You can only have one main parent element.
     <div className="container">
       < Header />
-      < Tasks tasks={tasks} onDelete={deleteTask} />
+      {tasks.length > 0 ? < Tasks tasks={tasks} onDelete={deleteTask} /> : "No Tasks to show"}
     </div>
 
   )
