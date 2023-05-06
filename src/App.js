@@ -1,7 +1,8 @@
 // Import the component to the app
 import { useState } from 'react';
 import Header from './components/Header';
-import Tasks from './components/Tasks';
+import Tasks from './components/Tasks'; 
+import AddTask from './components/AddTask';
 
 
 
@@ -36,6 +37,10 @@ const App = () => {
   )
 
 
+  // Add Task
+  const addTask = () => {}
+
+
   // Delete task function
 
   const deleteTask = (id) => {
@@ -56,6 +61,7 @@ const App = () => {
     // You can only have one main parent element.
     <div className="container">
       < Header />
+      <AddTask />
       {tasks.length > 0 ? < Tasks tasks={tasks} onDelete={deleteTask} onToggle ={toggleReminder}/> : "No Tasks To Show"}
     </div>
 
