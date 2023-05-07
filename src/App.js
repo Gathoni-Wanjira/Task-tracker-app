@@ -1,7 +1,7 @@
 // Import the component to the app
 import { useState } from 'react';
 import Header from './components/Header';
-import Tasks from './components/Tasks'; 
+import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 
 
@@ -38,7 +38,12 @@ const App = () => {
 
 
   // Add Task
-  const addTask = () => {}
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = {id, ...task} 
+    setTasks ([...tasks, newTask])
+
+  }
 
 
   // Delete task function
@@ -50,9 +55,11 @@ const App = () => {
   // Toggle Reminder Function.
   const toggleReminder = (id) => {
     setTasks(tasks.map((task) =>
-     task.id === id ? {...task, reminder:
-      !task.reminder} : task)
-      )
+      task.id === id ? {
+        ...task, reminder:
+          !task.reminder
+      } : task)
+    )
   }
 
 
@@ -61,8 +68,8 @@ const App = () => {
     // You can only have one main parent element.
     <div className="container">
       < Header />
-      <AddTask />
-      {tasks.length > 0 ? < Tasks tasks={tasks} onDelete={deleteTask} onToggle ={toggleReminder}/> : "No Tasks To Show"}
+      <AddTask onAdd={addTask} />
+      {tasks.length > 0 ? < Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : "No Tasks To Show"}
     </div>
 
   )
